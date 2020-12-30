@@ -6,7 +6,7 @@ set -euo pipefail
 source "$(dirname $0)/../lib/utils.sh"
 
 install_ruby() {
-  ensure_ruby_build_setup
+  ensure_ruby_install_setup
 
   local install_type=$1
   local version=$2
@@ -31,7 +31,7 @@ install_ruby() {
   fi
 
   # shellcheck disable=SC2086
-  echo "$patches" | $(ruby_build_path) ${opts} "$version" "$install_path"
+  echo "$patches" | $(ruby_install_path) ${opts} "$version" "$install_path"
 }
 
 fetch_patches() {
